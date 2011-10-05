@@ -74,7 +74,7 @@
 	
 	<cffunction name="createBeans">
 		<cfargument name="properties" type="struct" />
-		<cfargument name="name" default="Config" />
+		<cfargument name="name" default="HostConfig" />
 		<cfset var props = ListToArray(StructKeyList(properties)) />
 		<cfset var p = "" />
 
