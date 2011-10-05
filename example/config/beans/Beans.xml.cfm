@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans>
 
-	<bean id="Config" class="example.config.cfc.Config">
+	<bean id="HostConfig" class="example.config.cfc.HostConfig">
 	
 		
 		<constructor-arg name="environmentId"><value>local</value></constructor-arg>
@@ -12,12 +12,12 @@
 		
 	
 		
-		<constructor-arg name="Datasource"><ref bean="Config_Datasource" /></constructor-arg>
+		<constructor-arg name="Datasource"><ref bean="HostConfig_Datasource" /></constructor-arg>
 		
 	
 	</bean>
 
-	<bean id="Config_Datasource" class="example.config.cfc.Config_Datasource">
+	<bean id="HostConfig_Datasource" class="example.config.cfc.HostConfig_Datasource">
 	
 		
 		<constructor-arg name="username"><value>test</value></constructor-arg>

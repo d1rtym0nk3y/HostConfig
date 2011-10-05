@@ -4,7 +4,6 @@
 		variables.config = new ConfigReader().read(configFile);
 		variables.beanwriter = new BeanWriter(variables.config.config); 
 		writeFiles();
-		writelog("ec ran: (#cgi.PATH_INFO#) #cgi.SCRIPT_NAME#?#cgi.QUERY_STRING#");
 		return this;
 	}
 	
