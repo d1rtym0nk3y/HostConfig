@@ -4,7 +4,7 @@
 	<bean id="HostConfig" class="example.config.cfc.HostConfig">
 	
 		
-		<constructor-arg name="environmentId"><value>local</value></constructor-arg>
+		<constructor-arg name="EnvironmentId"><value>local</value></constructor-arg>
 		
 	
 		

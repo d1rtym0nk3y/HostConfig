@@ -67,8 +67,6 @@
 		}
 		
 		</cfscript>
-		
-		
 	</cffunction>
 
 	
@@ -82,12 +80,9 @@
 	<cfloop array="#props#" index="p">
 	property name="#p#";</cfloop> 
 	
-	public function init(<cfloop from="1" to="#arraylen(props)#" index="p">#props[p]#<cfif p LT arraylen(props)>, </cfif></cfloop>) {
-		<cfloop array="#props#" index="p">
+	public function init(<cfloop from="1" to="#arraylen(props)#" index="p">#props[p]#<cfif p LT arraylen(props)>, </cfif></cfloop>) {<cfloop array="#props#" index="p">
 		set#p#(#p#);</cfloop> 			
-
 	} 
-	
 }			
 </cfoutput></cfsavecontent>
 
@@ -100,7 +95,6 @@
 				createBeans(properties[p], "#name#_#p#");			
 			}			
 		}
-		
 		</cfscript>
 
 	</cffunction>

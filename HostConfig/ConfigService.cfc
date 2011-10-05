@@ -28,11 +28,11 @@
 	
 	private struct function getEnvironmentConfig(id) {
 		if(len(id) && structKeyExists(variables.config, "environments") && structKeyExists(variables.config.environments, id)) {
-			variables.config.environments[id]["environmentId"] = id;
+			variables.config.environments[id]["EnvironmentId"] = id;
 			return variables.config.environments[id];
 		}
 		return {
-			"environmentId" = "unknown"
+			"EnvironmentId" = "unknown"
 		};
 	}
 
