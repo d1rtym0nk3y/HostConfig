@@ -39,7 +39,7 @@
 
 	<cffunction name="writeColdspringBeanDef" access="private">
 		<cfargument name="properties" type="struct" />
-		<cfargument name="name" default="Config" />
+		<cfargument name="name" default="HostConfig" />
 		<cfargument name="tmpdir" default="#getTempDirectory()#" />
 		<cfset var p = "" />
 		<cfset var xml = "" />
