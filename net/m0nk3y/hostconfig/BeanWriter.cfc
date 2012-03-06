@@ -102,7 +102,7 @@
 	
 	public function init(<cfloop from="1" to="#arraylen(props)#" index="p">#props[p]#<cfif p LT arraylen(props)>, </cfif></cfloop>) {
 		<cfloop array="#props#" index="p">
-		set#p#(#p#);</cfloop> 			
+		set#p#(arguments.#p#);</cfloop> 			
 		return this;
 	} 
 	
