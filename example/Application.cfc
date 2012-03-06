@@ -4,7 +4,7 @@
 
 	/* GET ENVIRONMENT SPECIFIC PROPERTIES*/
 	if(!structKeyExists(server, "config_#this.name#") OR !isNull(url.init)) {
-		server["config_#this.name#"] = new HostConfig.ConfigService("/example/config/HostConfig.json.cfm"); 
+		server["config_#this.name#"] = new net.m0nk3y.hostconfig.ConfigService("/example/config/HostConfig.json.cfm"); 
 	}
 	this.config = server["config_#this.name#"].getConfigStruct();
 
