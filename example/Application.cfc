@@ -1,8 +1,10 @@
-﻿component {
+﻿import net.m0nk3y.hostconfig.*;
+
+component {
 
 	this.name = hash(getCurrentTemplatePath());
 
-	this.config = new net.m0nk3y.hostconfig.ConfigService("/example/config/HostConfig.cfm").getConfig();
+	this.config = new HostConfig("/example/config/HostConfig.cfm").getConfig();
 
 	function onApplicationStart() {
 		/* here you can create a coldspring bean factory and load the beans created by host config
