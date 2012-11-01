@@ -13,6 +13,7 @@
 	
 	public any function init(config) {
 		variables.config = config;
+		param name="variables.config.writebeans" default="false";
 		param name="variables.config.BeanExtends" default="";
 		return this;
 	}

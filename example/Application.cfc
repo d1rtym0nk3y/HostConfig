@@ -2,11 +2,7 @@
 
 	this.name = hash(getCurrentTemplatePath());
 
-	/* GET ENVIRONMENT SPECIFIC PROPERTIES*/
-	if(!structKeyExists(server, "config_#this.name#") OR !isNull(url.init)) {
-		server["config_#this.name#"] = new net.m0nk3y.hostconfig.ConfigService("/example/config/HostConfig.json.cfm"); 
-	}
-	this.config = server["config_#this.name#"].getConfigStruct();
+	this.config = new net.m0nk3y.hostconfig.ConfigService("/example/config/HostConfig.cfm").getConfig();
 
 	function onApplicationStart() {
 		/* here you can create a coldspring bean factory and load the beans created by host config

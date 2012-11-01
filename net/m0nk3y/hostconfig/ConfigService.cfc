@@ -1,13 +1,18 @@
 ﻿component {
 
 	public any function init(configFile) {
-		variables.config = new ConfigReader().read(configFile);
-		variables.beanwriter = new BeanWriter(variables.config.config); 
-		writeFiles();
+		include configFile;
+		if(isNull(variables.config)) {
+			throw(message="configfile didn't create CONFIG variable");
+		}
+		param name="variables.config.config.writebeans" default="false";
+		if(variables.config.config.writebeans) {
+			writeFiles();
+		}
 		return this;
 	}
 	
-	public any function getConfigStruct() {
+	public any function getConfig() {
 		var id = getEnvironmentIDFromUrl();
 		var common = getCommonConfig();
 		var target = getEnvironmentConfig(id);
@@ -15,8 +20,9 @@
 	} 
 
 	private any function writeFiles() {
-		variables.beanwriter.createBeans(getConfigStruct());
-		variables.beanwriter.createColdspringBeans(getConfigStruct());
+		var beanwriter = new BeanWriter(variables.config.config);
+		beanwriter.createBeans(getConfig());
+		beanwriter.createColdspringBeans(getConfig());
 	}
 	
 	private struct function getCommonConfig() {
@@ -28,11 +34,11 @@
 	
 	private struct function getEnvironmentConfig(id) {
 		if(len(id) && structKeyExists(variables.config, "environments") && structKeyExists(variables.config.environments, id)) {
-			variables.config.environments[id]["EnvironmentId"] = id;
+			variables.config.environments[id]["environmentid"] = id;
 			return variables.config.environments[id];
 		}
 		return {
-			"EnvironmentId" = "unknown"
+			"environmentid" = "unknown"
 		};
 	}
 
