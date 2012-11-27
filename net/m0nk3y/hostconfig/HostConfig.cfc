@@ -52,6 +52,9 @@
 				}
 			}
 		}
+		if(structKeyExists(variables.config, "defaultEnvironment")) {
+			return variables.config.defaultEnvironment;
+		}
 		return "";
 	}
 
